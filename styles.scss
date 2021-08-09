@@ -1,7 +1,12 @@
+@import "/setup.scss";
+
+$primaryColor: #272727;
+$secondaryColor: #f4f4f4;
+
 body {
-  /* font-family: primaryFont;
-  color: primaryColor;
-  background: tertiaryColor; */
+  // font-family: $primaryFont;
+  color: $secondaryColor;
+  background: $primaryColor;
 }
 
 h1,
