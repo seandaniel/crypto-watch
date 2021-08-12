@@ -14,21 +14,47 @@ app.init = () => {
   })
     .then(function(response) {
 
+      console.log(response)
+
       const weeksValues = response.data.slice(-7);
       console.log(`7 day response:`, weeksValues)
       // map through the last 7 days
       // put priceUSd and date into arrays
-
       const prices = weeksValues.map(day => {
         // turn into a number, make to two decimal places, add commas
-        return parseFloat(day.priceUsd).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parseFloat(day.priceUsd).toFixed(2);
+
       });
 
-      const date = weeksValues.map(date => {
+      const dates = weeksValues.map(date => {
         return date.date.slice(0, 10);
       });
       
-      console.log(date, prices);
+      console.log(dates, prices);
+
+      const labels = dates
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Price USD',
+          backgroundColor: '#CBAA57',
+          borderColor: '#8B6825',
+          data: prices
+        }]
+      };
+            
+      const config = {
+        type: 'line',
+        data,
+        options: {}
+      };
+      
+      var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    
 
     }).catch(function(error) {
       console.log(`API Failed ${error}`);
