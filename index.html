@@ -15,11 +15,29 @@
   <header>
     <div class="wrapper">
       <h1>Crypto Watch</h1>
-      <section class="chart-container">
-        <canvas id="myChart" width="400" height="400"></canvas>
-      </section>
     </div>
   </header>
+  <main>
+    <section>
+      <div class="wrapper">
+        <form>
+          <input type="radio" name="coin" id="bitcoin" value="bitcoin" checked>
+          <label for="bitcoin">Bitcoin</label>
+
+          <input type="radio" name="coin" id="ethereum" value="ethereum">
+          <label for="ethereum">Ethereum</label>
+
+          <input type="radio" name="coin" id="dogecoin" value="dogecoin">
+          <label for="dogecoin">Dogecoin</label>
+        </form>
+      </div>
+    </section>
+  </main>
+  <section class="chart-container">
+    <div class="wrapper">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+  </section>
 </body>
 
 </html>

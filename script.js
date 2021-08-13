@@ -1,9 +1,9 @@
-// prettier-ignore
-
 const app = {};
 
-app.init = () => {
-  fetch("https://api.coincap.io/v2/assets/bitcoin/history?interval=d1").then(function(response) {
+
+app.apiCall = (coin) => {
+
+  fetch(`https://api.coincap.io/v2/assets/${coin}/history?interval=d1`).then(function(response) {
     if (response.ok) {
       // returns a ReadableStream that convert to JSON
       return response.json();
@@ -50,7 +50,7 @@ app.init = () => {
         options: {}
       };
       
-      var myChart = new Chart(
+      const myChart = new Chart(
         document.getElementById('myChart'),
         config
       );
@@ -59,6 +59,25 @@ app.init = () => {
     }).catch(function(error) {
       console.log(`API Failed ${error}`);
     });
+}
+
+app.init = () => {
+
+  const checked = document.querySelector('input:checked').value;
+
+  const radioButtons = Array.from(document.querySelectorAll('input[name="coin"]'));
+
+  const clickEvent = () => {
+    console.log('click');
+  }
+
+  radioButtons.forEach(radioButton.addEventListener('click'));
+
+
+  console.log(radioButtons);
+
+  app.apiCall(checked)
+
 };
 
 document.addEventListener("DOMContentLoaded", () => {
