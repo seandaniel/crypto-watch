@@ -1,5 +1,10 @@
 const app = {};
 
+// custom chart colors
+// convert date
+// search other coins
+// accessibility
+
 
 app.apiCall = (coin) => {
 
@@ -12,8 +17,6 @@ app.apiCall = (coin) => {
       return Promise.reject(response);
     }
   }).then(function(response) {
-
-    
 
       console.log(response)
 
@@ -71,7 +74,7 @@ app.init = () => {
   const radioButtons = Array.from(document.querySelectorAll('input[name="coin"]'));
 
   const clickEvent = function() {
-    document.querySelector('.chart-container .wrapper').innerHTML = `<canvas id="myChart"></canvas>`
+    document.querySelector('.wrapper .chart-container').innerHTML = `<canvas id="myChart"></canvas>`
     app.apiCall(this.value);
   }
 

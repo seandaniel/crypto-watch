@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="styles/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/d9461c25c6.js"></script>
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <title>Crypto Watch</title>
 </head>
 
@@ -21,23 +25,31 @@
     <section>
       <div class="wrapper">
         <form>
-          <input type="radio" name="coin" id="bitcoin" value="bitcoin" checked>
-          <label for="bitcoin">Bitcoin</label>
+          <ul>
+            <li>
+              <input type="radio" name="coin" id="bitcoin" value="bitcoin" checked>
+              <label for="bitcoin">Bitcoin <i class="fab fa-bitcoin"></i></label>
 
-          <input type="radio" name="coin" id="ethereum" value="ethereum">
-          <label for="ethereum">Ethereum</label>
+            </li>
+            <li>
+              <input type="radio" name="coin" id="ethereum" value="ethereum">
+              <label for="ethereum">Ethereum <i class="fab fa-ethereum"></i></label>
+            </li>
+            <li>
+              <input type="radio" name="coin" id="dogecoin" value="dogecoin">
+              <label for="dogecoin">Dogecoin <i class="fas fa-dog"></i></label>
+            </li>
+          </ul>
 
-          <input type="radio" name="coin" id="dogecoin" value="dogecoin">
-          <label for="dogecoin">Dogecoin</label>
         </form>
       </div>
     </section>
-  </main>
-  <section class="chart-container">
     <div class="wrapper">
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <section class="chart-container">
+        <canvas id="myChart"></canvas>
+      </section>
     </div>
-  </section>
+  </main>
 </body>
 
 </html>
