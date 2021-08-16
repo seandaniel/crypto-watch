@@ -11,8 +11,9 @@ app.apiCall = (coin) => {
       // return a rejected promise object that triggers the catch() method
       return Promise.reject(response);
     }
-  })
-    .then(function(response) {
+  }).then(function(response) {
+
+    
 
       console.log(response)
 
@@ -54,6 +55,9 @@ app.apiCall = (coin) => {
         document.getElementById('myChart'),
         config
       );
+
+    myChart.update();
+    
     
 
     }).catch(function(error) {
@@ -63,20 +67,18 @@ app.apiCall = (coin) => {
 
 app.init = () => {
 
-  const checked = document.querySelector('input:checked').value;
-
+  const checkedButton = document.querySelector('input:checked').value;
   const radioButtons = Array.from(document.querySelectorAll('input[name="coin"]'));
 
-  const clickEvent = () => {
-    console.log('click');
+  const clickEvent = function() {
+    document.querySelector('.chart-container .wrapper').innerHTML = `<canvas id="myChart"></canvas>`
+    app.apiCall(this.value);
   }
 
-  radioButtons.forEach(radioButton.addEventListener('click'));
+  radioButtons.forEach(radioButton => radioButton.addEventListener('click', clickEvent));
 
-
-  console.log(radioButtons);
-
-  app.apiCall(checked)
+  // initial API call
+  app.apiCall(checkedButton)
 
 };
 
