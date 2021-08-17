@@ -6,7 +6,7 @@ const app = {};
 // accessibility
 
 
-app.apiCall = (coin) => {
+app.apiCall = (coin, color) => {
 
   fetch(`https://api.coincap.io/v2/assets/${coin}/history?interval=d1`).then(function(response) {
     if (response.ok) {
@@ -18,32 +18,39 @@ app.apiCall = (coin) => {
     }
   }).then(function(response) {
 
-      console.log(response)
+    console.log(response)
 
-      const weeksValues = response.data.slice(-7);
-      console.log(`7 day response:`, weeksValues)
-      // map through the last 7 days
-      // put priceUSd and date into arrays
-      const prices = weeksValues.map(day => {
-        // turn into a number, make to two decimal places, add commas
-        return parseFloat(day.priceUsd).toFixed(2);
+    const weeksValues = response.data.slice(-7);
+    console.log(`7 day response:`, weeksValues)
+    // map through the last 7 days
+    // put priceUSd and date into arrays
+    const prices = weeksValues.map(day => {
+      // turn into a number, make to two decimal places, add commas
+      return parseFloat(day.priceUsd).toFixed(2);
 
-      });
+    });
 
-      const dates = weeksValues.map(date => {
-        return date.date.slice(0, 10);
-      });
+    const dates = weeksValues.map(date => {
+      return date.date.slice(0, 10);
+    });
       
-      console.log(dates, prices);
+    console.log(dates, prices);
 
-      const labels = dates
+    const labels = dates;
+    console.log(color.replace('1', '0.5'))
 
-      const data = {
-        labels: labels,
-        datasets: [{
-          label: 'Price USD',
-          backgroundColor: '#CBAA57',
-          borderColor: '#8B6825',
+    console.log(color.split(''));
+
+    const colorArray = color.split('');
+
+    console.log(colorArray.splice(colorArray.length - 2, 1, '0.5'));
+
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Price USD',
+        backgroundColor: color,
+        borderColor: colorArray.splice(colorArray.length - 2, 1, '0.5').join(''),
           data: prices
         }]
       };
@@ -75,13 +82,13 @@ app.init = () => {
 
   const clickEvent = function() {
     document.querySelector('.wrapper .chart-container').innerHTML = `<canvas id="myChart"></canvas>`
-    app.apiCall(this.value);
+    app.apiCall(this.value, this.getAttribute('data'));
   }
 
   radioButtons.forEach(radioButton => radioButton.addEventListener('click', clickEvent));
 
-  // initial API call
-  app.apiCall(checkedButton)
+  // initial API call (Bitcoin)
+  app.apiCall(checkedButton, 'rgba(239, 142, 25, 1)')
 
 };
 
