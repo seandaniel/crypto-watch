@@ -1,8 +1,7 @@
 const app = {};
 
-// custom chart colors
 // convert date
-// search other coins
+// search other coins to API
 // accessibility
 
 
@@ -37,20 +36,30 @@ app.apiCall = (coin, color) => {
     console.log(dates, prices);
 
     const labels = dates;
-    console.log(color.replace('1', '0.5'))
 
-    console.log(color.split(''));
+    // replace() will grab the first instance of 1
+    // color.replace('1', '0.5')
 
-    const colorArray = color.split('');
+    const borderColors = color.split('');
 
-    console.log(colorArray.splice(colorArray.length - 2, 1, '0.5'));
+    borderColors.splice(borderColors.length - 2, 1, '0.5');
+
+    // borderColors.join('')
+    // console.log(borderColors)
+    // console.log(borderColors.join(''));
+    // console.log(borderColorsArray);
+
+    const borderColorsString = borderColors.join('');
+
+
 
     const data = {
       labels: labels,
       datasets: [{
         label: 'Price USD',
         backgroundColor: color,
-        borderColor: colorArray.splice(colorArray.length - 2, 1, '0.5').join(''),
+        borderColor: borderColorsString,
+        borderWidth: 7,
           data: prices
         }]
       };
