@@ -1,8 +1,5 @@
 const app = {};
 
-// error handling
-// accessibility
-
 app.apiCall = (coin, color) => {
 
   fetch(`https://api.coincap.io/v2/assets/${coin}/history?interval=d1`).then(function(response) {
@@ -20,7 +17,6 @@ app.apiCall = (coin, color) => {
     console.log(response)
 
     const weeksValues = response.data.slice(-7);
-    console.log(`7 day response:`, weeksValues)
     // map through the last 7 days
     // put priceUSd and date into arrays
     const prices = weeksValues.map(day => {
@@ -32,8 +28,7 @@ app.apiCall = (coin, color) => {
     const dates = weeksValues.map(date => {
       return date.date.slice(0, 10);
     });
-      
-    console.log(dates, prices);
+  
 
     const labels = dates;
 
@@ -43,11 +38,6 @@ app.apiCall = (coin, color) => {
     const borderColors = color.split('');
 
     borderColors.splice(borderColors.length - 2, 1, '0.5');
-
-    // borderColors.join('')
-    // console.log(borderColors)
-    // console.log(borderColors.join(''));
-    // console.log(borderColorsArray);
 
     const borderColorsString = borderColors.join('');
 

@@ -72,6 +72,7 @@ header .wrapper {
   h1 {
     font-size: 50px;
     font-weight: 700;
+    margin-top: 18px;
   }
 }
 
@@ -79,7 +80,7 @@ header .wrapper {
   header .wrapper {
     flex-direction: column;
     h1 {
-      margin-bottom: 40px;
+      margin: 0 0 40px 0;
     }
   }
 }
@@ -114,7 +115,7 @@ form ul li:nth-child(3):hover label {
 }
 
 input[type="radio"] {
-  display: none;
+  opacity: 0;
 }
 
 input[value="bitcoin"]:checked + label {
