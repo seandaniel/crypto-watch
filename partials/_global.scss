@@ -1,6 +1,6 @@
-$primaryColor: #272727;
-$secondaryColor: #f4f4f4;
-$primaryFont: "Roboto", sans-serif;
+$primaryColor: #fff;
+$secondaryColor: #272727;
+$primaryFont: "Roboto Mono", monospace;
 
 @mixin flex-row-center {
   display: flex;
@@ -66,48 +66,63 @@ button {
 
 header .wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 40px 0;
   h1 {
-    font-size: 50;
+    font-size: 50px;
+    font-weight: 700;
   }
 }
 
 form ul {
   @include flex-row-center;
-  margin-bottom: 40px;
   li label {
     margin-right: 40px;
     padding: 20px;
-    border: 3px solid $secondaryColor;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
     @include flex-column-center;
     cursor: pointer;
     transition: background-color 0.35s, color 0.35s;
     border-radius: 10px;
-    &:hover,
-    &:focus {
-      background-color: $secondaryColor;
-      color: $primaryColor;
-    }
   }
   li:last-child {
     margin-right: 0;
   }
 }
 
-input[type="radio"] {
-  opacity: 0;
+form ul li:first-child:hover label {
+  background: rgba(239, 142, 25, 0.2);
 }
 
-input[type="radio"]:checked + label {
-  background: $secondaryColor;
-  color: $primaryColor;
+form ul li:nth-child(2):hover label {
+  background: rgba(18, 18, 18, 0.2);
+}
+
+form ul li:nth-child(3):hover label {
+  background: rgba(254, 199, 35, 0.2);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[value="bitcoin"]:checked + label {
+  background: rgba(239, 142, 25, 0.2);
+}
+
+input[value="ethereum"]:checked + label {
+  background: rgba(18, 18, 18, 0.2);
+}
+
+input[value="dogecoin"]:checked + label {
+  background: rgba(254, 199, 35, 0.2);
 }
 
 .wrapper .chart-container {
   background: white;
-  padding: 10px;
-  border-radius: 10px;
-  height: 560px;
+  padding: 40px;
+  border-radius: 30px;
+  height: 590px;
+  box-shadow: inset 5px 5px 10px #f4f4f4, inset -20px -20px 60px #ffffff;
 }

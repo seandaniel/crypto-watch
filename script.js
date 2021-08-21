@@ -1,8 +1,11 @@
 const app = {};
 
+// new api
 // convert date
-// search other coins to API
+// search other coins option
+// error handling
 // accessibility
+// responsiveness
 
 
 app.apiCall = (coin, color) => {

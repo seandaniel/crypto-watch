@@ -11,7 +11,7 @@
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/d9461c25c6.js"></script>
   <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <title>Crypto Watch</title>
 </head>
 
@@ -19,30 +19,25 @@
   <header>
     <div class="wrapper">
       <h1>Crypto Watch</h1>
+      <form>
+        <ul>
+          <li>
+            <input type="radio" name="coin" id="bitcoin" value="bitcoin" data="rgba(239, 142, 25, 1)" checked>
+            <label for="bitcoin">Bitcoin <i class="fab fa-bitcoin"></i></label>
+          </li>
+          <li>
+            <input type="radio" name="coin" id="ethereum" data="rgba(18, 18, 18, 1)" value="ethereum">
+            <label for="ethereum">Ethereum <i class="fab fa-ethereum"></i></label>
+          </li>
+          <li>
+            <input type="radio" name="coin" id="dogecoin" data="rgba(254, 199, 35, 1)" value="dogecoin">
+            <label for="dogecoin">Dogecoin <i class="fas fa-dog"></i></label>
+          </li>
+        </ul>
+      </form>
     </div>
   </header>
   <main>
-    <section>
-      <div class="wrapper">
-        <form>
-          <ul>
-            <li>
-              <input type="radio" name="coin" id="bitcoin" value="bitcoin" data="rgba(239, 142, 25, 1)" checked>
-              <label for="bitcoin">Bitcoin <i class="fab fa-bitcoin"></i></label>
-            </li>
-            <li>
-              <input type="radio" name="coin" id="ethereum" data="rgba(18, 18, 18, 1)" value="ethereum">
-              <label for="ethereum">Ethereum <i class="fab fa-ethereum"></i></label>
-            </li>
-            <li>
-              <input type="radio" name="coin" id="dogecoin" data="rgba(254, 199, 35, 1)" value="dogecoin">
-              <label for="dogecoin">Dogecoin <i class="fas fa-dog"></i></label>
-            </li>
-          </ul>
-
-        </form>
-      </div>
-    </section>
     <div class="wrapper">
       <section class="chart-container">
         <canvas id="myChart"></canvas>
