@@ -75,6 +75,15 @@ header .wrapper {
   }
 }
 
+@media (max-width: 1200px) {
+  header .wrapper {
+    flex-direction: column;
+    h1 {
+      margin-bottom: 40px;
+    }
+  }
+}
+
 form ul {
   @include flex-row-center;
   li label {
@@ -86,9 +95,10 @@ form ul {
     transition: background-color 0.35s, color 0.35s;
     border-radius: 10px;
   }
-  li:last-child {
-    margin-right: 0;
-  }
+}
+
+form ul li:last-child label {
+  margin-right: 0;
 }
 
 form ul li:first-child:hover label {
@@ -125,4 +135,8 @@ input[value="dogecoin"]:checked + label {
   border-radius: 30px;
   height: 590px;
   box-shadow: inset 5px 5px 10px #f4f4f4, inset -20px -20px 60px #ffffff;
+  p {
+    margin-top: 40px;
+    text-align: center;
+  }
 }

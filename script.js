@@ -1,18 +1,15 @@
 const app = {};
 
-// new api
-// convert date
-// search other coins option
 // error handling
 // accessibility
-// responsiveness
-
 
 app.apiCall = (coin, color) => {
 
   fetch(`https://api.coincap.io/v2/assets/${coin}/history?interval=d1`).then(function(response) {
     if (response.ok) {
       // returns a ReadableStream that convert to JSON
+      const body = document.querySelector('body');
+      body.classList.add('black');
       return response.json();
     } else {
       // return a rejected promise object that triggers the catch() method
@@ -54,8 +51,6 @@ app.apiCall = (coin, color) => {
 
     const borderColorsString = borderColors.join('');
 
-
-
     const data = {
       labels: labels,
       datasets: [{
@@ -79,11 +74,16 @@ app.apiCall = (coin, color) => {
       );
 
     myChart.update();
-    
-    
+  
 
-    }).catch(function(error) {
-      console.log(`API Failed ${error}`);
+    }).catch(function() {
+
+      const chartContainer = document.querySelector('.chart-container');
+      const errorMessage = document.createElement('p');
+      errorMessage.innerHTML = "Sorry, something went wrong... try again!";
+
+      chartContainer.append(errorMessage);
+      
     });
 }
 
