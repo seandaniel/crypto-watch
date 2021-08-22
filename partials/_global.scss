@@ -85,6 +85,12 @@ header .wrapper {
   }
 }
 
+@media (max-width: 500px) {
+  header .wrapper h1 {
+    font-size: 30px;
+  }
+}
+
 form ul {
   @include flex-row-center;
   li label {
@@ -95,6 +101,15 @@ form ul {
     cursor: pointer;
     transition: background-color 0.35s, color 0.35s;
     border-radius: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  form ul {
+    flex-direction: column;
+    li label {
+      margin: 0 0 40px 0;
+    }
   }
 }
 
