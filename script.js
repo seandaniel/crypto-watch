@@ -4,9 +4,7 @@ app.apiCall = (coin, color) => {
 
   fetch(`https://api.coincap.io/v2/assets/${coin}/history?interval=d1`).then(function(response) {
     if (response.ok) {
-      // returns a ReadableStream that convert to JSON
-      const body = document.querySelector('body');
-      body.classList.add('black');
+      // returns a ReadableStream that we convert to JSON
       return response.json();
     } else {
       // return a rejected promise object that triggers the catch() method
